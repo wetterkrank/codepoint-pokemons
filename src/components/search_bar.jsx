@@ -4,7 +4,7 @@ class SearchBar extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const input = event.currentTarget.querySelector('#search-input').value;
+    const input = event.target.querySelector('#search-input').value;
     this.props.onSearch(input);
   }
 

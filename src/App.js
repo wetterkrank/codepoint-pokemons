@@ -17,8 +17,8 @@ class App extends Component {
   doSearch = (input) => {
     // TODO: Error indication
     getPokemonInfo(input)
-    .then(data => { this.setState({selectedPokemon: data}) })
-    .catch(error => { console.log(error) });
+      .then(data => { this.setState({ selectedPokemon: data }) })
+      .catch(error => { console.log(error) });
   }
 
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <SearchBar onSearch={this.doSearch} />
         <Contents data={this.state.selectedPokemon} />
-        <NavBar />
+        <NavBar data={this.state.selectedPokemon} onNav={this.doSearch} />
       </div>
     );
   }
