@@ -10,7 +10,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedPokemon: null
+      selectedPokemon: null,
     }
   }
 
@@ -22,10 +22,11 @@ class App extends Component {
   }
 
   render() {
+    console.log('APP RENDER');
     return (
       <div className="App">
         <SearchBar onSearch={this.doSearch} />
-        <Contents data={this.state.selectedPokemon} />
+        <Contents data={this.state.selectedPokemon} key={new Date().getTime()} />
         <NavBar data={this.state.selectedPokemon} onNav={this.doSearch} />
       </div>
     );

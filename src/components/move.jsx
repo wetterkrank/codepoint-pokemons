@@ -1,23 +1,19 @@
 import { Component } from "react";
 
 class Move extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { closed: true };
-  }
-
   handleClick = () => {
-    this.setState({ closed: !this.state.closed });
+    this.props.onToggle(this.props.id, !this.props.open);
   };
 
   render() {
-    const { name, accuracy, power } = this.props;
+    const { name, accuracy, power, open } = this.props;
+    console.log(`MOVE RENDER, id ${this.props.id}, open: ${open}`)
     return (
       <div className="move">
         <div className="move-name" onClick={this.handleClick}>
           {name}
         </div>
-        <div className={'move-details' + (this.state.closed ? ' closed' : '')}>
+        <div className={'move-details' + (open ? ' open' : '')}>
           <p>Accuracy {accuracy || '??'}</p>
           <p>Power {power || '??'}</p>
         </div>

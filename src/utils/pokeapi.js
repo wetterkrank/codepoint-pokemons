@@ -16,6 +16,7 @@ async function getMovesInfo(moveURLs) {
     name: res.names.find(x => x.language.name === 'en').name,
     accuracy: res.accuracy,
     power: res.power,
+    id: res.id,
     key: res.id
   }));
   return results;
