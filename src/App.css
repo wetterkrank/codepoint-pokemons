@@ -46,27 +46,36 @@
 }
 
 .contents {
-    height: 76%;
-    padding: 4%;
+    height: 75%;
+    padding: 5%;
 }
 
 .sprite {
-    width: 40%;
+    height: 30%;
+    width: 45.6%;
     margin: auto;
-    display: block;
-}
-
-.sprite img {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
     border-radius: 50%;
+    overflow: hidden;
     border-style: solid;
     border-width: 5px;
     border-color: white;
+    color: white;
     background-color: #23689B;
 }
 
+.sprite * {
+    display: block;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    font-size: x-large;
+}
+
 .name {
-    margin: 2% auto;
+    margin: 4% auto 2% auto;
     text-align: center;
 }
 
@@ -119,6 +128,7 @@
 
 .move-details p {
     margin: 2% auto;
+    font-size: smaller;
 }
 
 .nav-bar {

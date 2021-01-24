@@ -23,13 +23,12 @@ async function getMovesInfo(moveURLs) {
 }
 
 async function getPokemonInfo(query) {
-  // TODO: Add query validation?
   const url = URL_BASE + query.toLowerCase();
   const response = await fetch(url);
 
   if (!response.ok) {
-    const message = `An error has occured: ${response.status}`;
-    throw new Error(message);
+    console.log(response);
+    throw new Error(response.status);
   }
 
   const data = await response.json();

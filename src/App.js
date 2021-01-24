@@ -11,22 +11,34 @@ class App extends Component {
     super(props);
     this.state = {
       selectedPokemon: null,
+      openMove: null,
+      error: null
     }
   }
 
   doSearch = (input) => {
-    // TODO: Error indication; add route update?
+    // TODO: Add route update?
+    if (!input) return;
+
     getPokemonInfo(input)
-      .then(data => { this.setState({ selectedPokemon: data }) })
-      .catch(error => { console.log(error) });
+      .then(data => { 
+        this.setState({ selectedPokemon: data, openMove: null, error: null }) 
+      })
+      .catch(error => { 
+        console.log(error);
+        this.setState({ selectedPokemon: null, error: error.message });
+      });
+  }
+
+  doToggle = (moveID, newState) => {
+    this.setState({openMove: newState && moveID});
   }
 
   render() {
-    console.log('APP RENDER');
     return (
       <div className="App">
         <SearchBar onSearch={this.doSearch} />
-        <Contents data={this.state.selectedPokemon} key={new Date().getTime()} />
+        <Contents {...this.state} onToggle={this.doToggle} />
         <NavBar data={this.state.selectedPokemon} onNav={this.doSearch} />
       </div>
     );

@@ -5,9 +5,12 @@ class Move extends Component {
     this.props.onToggle(this.props.id, !this.props.open);
   };
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.open !== nextProps.open;
+  }
+
   render() {
     const { name, accuracy, power, open } = this.props;
-    console.log(`MOVE RENDER, id ${this.props.id}, open: ${open}`)
     return (
       <div className="move">
         <div className="move-name" onClick={this.handleClick}>
