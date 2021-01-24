@@ -1,5 +1,8 @@
+// TODO: replace with pokeapi-js-wrapper?
+
 const FIRST = 1;
 const LAST = 898; // Excluding the extra pokemons with indexes 1000+
+const URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -20,7 +23,7 @@ async function getMovesInfo(moveURLs) {
 
 async function getPokemonInfo(query) {
   // TODO: Add query validation?
-  const url = `https://pokeapi.co/api/v2/pokemon/${query}/`;
+  const url = URL_BASE + query.toLowerCase();
   const response = await fetch(url);
 
   if (!response.ok) {

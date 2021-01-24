@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   doSearch = (input) => {
-    // TODO: Error indication
+    // TODO: Error indication; add route update?
     getPokemonInfo(input)
       .then(data => { this.setState({ selectedPokemon: data }) })
       .catch(error => { console.log(error) });

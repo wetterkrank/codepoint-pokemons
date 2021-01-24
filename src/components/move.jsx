@@ -3,11 +3,11 @@ import { Component } from "react";
 class Move extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = { closed: true };
   }
 
   handleClick = () => {
-    this.setState({ open: !this.state.open });
+    this.setState({ closed: !this.state.closed });
   };
 
   render() {
@@ -17,7 +17,7 @@ class Move extends Component {
         <div className="move-name" onClick={this.handleClick}>
           {name}
         </div>
-        <div className={'move-details' + (this.state.open ? ' open' : '')}>
+        <div className={'move-details' + (this.state.closed ? ' closed' : '')}>
           <p>Accuracy {accuracy || '??'}</p>
           <p>Power {power || '??'}</p>
         </div>

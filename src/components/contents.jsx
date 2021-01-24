@@ -18,7 +18,9 @@ class Contents extends Component {
     const { name, spriteURL, types, moves } = this.props.data;
     return (
       <div className="contents">
-        <img src={spriteURL} alt="" className="sprite" />
+        <div className="sprite">
+          <img src={spriteURL} alt="" />
+        </div>
         <h2 className="name">{name}</h2>
         <ul className="types">{this.types(types)}</ul>
         <div className="moves">{this.moves(moves)}</div>
