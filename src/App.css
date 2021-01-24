@@ -74,6 +74,21 @@
     font-size: x-large;
 }
 
+.fav {
+    display: inline-block;
+    width: 5%;
+    position: relative;
+    top: 5%;
+    right: -67%;
+    color: rgb(223, 0, 0);
+    font-size: larger;
+    cursor: pointer;
+}
+
+.fav:hover {
+    transform: scale(1.10);
+}
+
 .name {
     margin: 4% auto 2% auto;
     text-align: center;
@@ -153,7 +168,7 @@
     display: block;
     padding: 12%;
     margin: auto;
-    min-width: 50%;
+    min-width: 60%;
     background-color: #23689B;
     color: white;
     border: none;

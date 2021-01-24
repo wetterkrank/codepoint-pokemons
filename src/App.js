@@ -12,6 +12,8 @@ class App extends Component {
     this.state = {
       selectedPokemon: null,
       openMove: null,
+      // favs: new Set([1, 3]), // load favs from LS
+      favs: new Set(JSON.parse(localStorage.getItem('favs'))),
       error: null
     }
   }
@@ -30,15 +32,26 @@ class App extends Component {
       });
   }
 
-  doToggle = (moveID, newState) => {
+  toggleMove = (moveID, newState) => {
     this.setState({openMove: newState && moveID});
+  }
+
+  toggleFav = (pokeID) => {
+    let newFavs = new Set(this.state.favs);
+    if (newFavs.has(pokeID)) {
+      newFavs.delete(pokeID)
+    } else {
+      newFavs.add(pokeID)
+    }
+    this.setState({favs: newFavs});
+    localStorage.setItem('favs', JSON.stringify([...newFavs]));
   }
 
   render() {
     return (
       <div className="App">
         <SearchBar onSearch={this.doSearch} />
-        <Contents {...this.state} onToggle={this.doToggle} />
+        <Contents {...this.state} onToggle={this.toggleMove} onFav={this.toggleFav} />
         <NavBar data={this.state.selectedPokemon} onNav={this.doSearch} />
       </div>
     );
