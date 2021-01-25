@@ -4,7 +4,7 @@ import SearchBar from './components/search_bar';
 import NavBar from './components/nav_bar';
 import Contents from './components/contents';
 import { getPokemonInfo } from './utils/pokeapi';
-import { isSupportedLS } from './utils/storage';
+import { isSupportedLS, lsID } from './utils/storage';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       selectedPokemon: null,
       openMove: null,
-      favs: isSupportedLS() ? new Set(JSON.parse(localStorage.getItem('favs'))) : new Set(),
+      favs: isSupportedLS() ? new Set(JSON.parse(localStorage.getItem(lsID('favs')))) : new Set(),
       error: null
     }
   }
@@ -44,7 +44,7 @@ class App extends Component {
       newFavs.add(pokeID)
     }
     this.setState({favs: newFavs});
-    if (isSupportedLS()) localStorage.setItem('favs', JSON.stringify([...newFavs]));
+    if (isSupportedLS()) localStorage.setItem(lsID('favs'), JSON.stringify([...newFavs]));
   }
 
   render() {

@@ -1,3 +1,5 @@
+const ID_PREFIX = 'codepoint_pokedex';
+
 function isSupportedLS() {
   try {
     const key = "__codepoint_pokedex_testLS__";
@@ -9,4 +11,8 @@ function isSupportedLS() {
   }
 }
 
-export { isSupportedLS };
+function lsID(id) {
+  return `${ID_PREFIX}_${id}`;
+}
+
+export { isSupportedLS, lsID };
