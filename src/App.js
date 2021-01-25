@@ -12,7 +12,6 @@ class App extends Component {
     this.state = {
       selectedPokemon: null,
       openMove: null,
-      // favs: new Set([1, 3]), // load favs from LS
       favs: new Set(JSON.parse(localStorage.getItem('favs'))),
       error: null
     }

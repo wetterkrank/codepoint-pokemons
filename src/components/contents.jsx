@@ -44,9 +44,9 @@ class Contents extends Component {
 
     return (
       <div className="contents">
-        <div className="sprite">{spriteURL ? <img src={spriteURL} alt="" /> : ''}</div>
         <div className="fav" onClick={this.onFav}>{this.fav(added)}</div>
-        <h2 className="name">{name}</h2>
+        <div className="sprite">{spriteURL ? <img src={spriteURL} alt="" /> : ''}</div>
+        <h1 className="name">{name}</h1>
         <ul className="types">{this.types(types)}</ul>
         <div className="moves">{this.moves(moves)}</div>
       </div>
