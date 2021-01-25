@@ -8,11 +8,15 @@ class SearchBar extends Component {
     this.props.onSearch(input);
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     return (
       <div className="search-bar">
         <form onSubmit={this.handleSubmit}>
-          <input type="text" id="search-input" />
+          <input type="text" id="search-input" required /> 
           <input type="submit" value="Search" id="search-button"/>
         </form>
       </div>

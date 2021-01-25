@@ -6,9 +6,9 @@ class NavBar extends Component {
     this.props.onNav(event.target.dataset.id);
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return (this.props.data) ? this.props.data.id !== nextProps.data.id : true;
-  // }
+  shouldComponentUpdate = (nextProps) => {
+    return (this.props.data && nextProps.data) ? this.props.data.id !== nextProps.data.id : true;
+  }
 
   render() {
     if (!this.props.data) return (<div className="nav-bar" />);
