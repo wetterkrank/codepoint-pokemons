@@ -1,14 +1,5 @@
 # Pokédex app made with React
 
-## What could be improved?
-- Add some delay indication on search and page changes
-- Use an existing API wrapper with caching, like pokeapi-js-wrapper
-- Better layout for mobile; now it's just fixed W/H
-- Use CSS reset
-- Better keyboard support (focusable moves and fav buttons)
-- Routes (meaningful URLs)
-- Test coverage
-
 ## Notes
 - Most font recognition tools seem pretty terrible; www.whatfontis.com worked for me though.
 - Collapsing the move info on page change:
@@ -23,3 +14,12 @@
 - New thing learned: `Promise.all` with an array of promises passed as an argument, returns an array as well.
 - To return an object from an arrow function, put it in parentheses: `types.map(one => ({ key: one.slot, name: one.type.name }))` (otherwise it's parsed as a block statement).
 - To JSON.stringify a Set, convert it into Array first.
+
+## What could be improved?
+- Add some delay indication on search and page changes
+- Use an existing API wrapper with caching, like pokeapi-js-wrapper
+- Better layout for mobile; now it's just fixed W/H
+- Use CSS reset
+- Better keyboard support (focusable moves and fav buttons)
+- Routes (meaningful URLs)
+- Test coverage
